@@ -27,14 +27,17 @@ Bu *simple search* (belki de *stupid search* demeliyiz😅). Her tahminde sadece
 ### Aramak için daha iyi bir yol
 İşte daha iyi bir yol. 50 ile başlayalım.
 ![1 5](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/891ceeb3-9291-45ca-8312-4d81e1375e32)
+
 Az ama az önce sayıların yarısını eledik!😏 Şimdi 1-50 arasındaki tüm sayıların az olduğunu öğrendik. Sonraki tahminimiz 75...
 ![1 6](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/bd8f2b38-2d10-48da-a62a-1a270e52b0a2)
+
 Fazla ama yine sayıların yarısını eledik! *Binary search'te ortadaki sayıyı tahmin edersiniz, böylece her seferinde kalan sayıların yarısını elemiş olursunuz.* Sonraki 63...(50 ile 75'in ortası)
 
 ![1 7](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/fd9cfc8d-b369-4c74-88fa-5ba9120557b0)
 
 İşte binary search, az önce ilk algoritmanı öğrendin.🥳 Ve de her seferinde kaç tane sayı elediğin
 ![1 8](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/d9ccef8a-926d-4be3-b6dc-f74fcc139922)
+
 Hangi sayıyı tutarsam tutayım, en fazla 7 tahminde bulabilirsin-çünkü her tahminde çok fazla sayı eliyorsun.😉
 
 Sözlükten bir kelimeye baktığını düşün ve sözlükte 240,000 tane kelime olsun. *En kötü ihtimalle(worst case)* her bir arama kaç adımda tamamlanır?(Okumaya devam etmeden önce tahmin et😇)
@@ -42,6 +45,7 @@ Sözlükten bir kelimeye baktığını düşün ve sözlükte 240,000 tane kelim
 
 Eğer ki aradığın kelime sözlükteki son kelime ise, simple search ile 240,000 adımda tamamlanır. Binary search'te ise en son tek bir kelime kalana kadar her adımda kalan kelime sayısını yarıya indirilir.
 ![1 10](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/3f1acee0-a479-4dbc-9b2b-abf381029d97)
+
 Yani binary search ile sadece 18 adımda tamamlanır-ne büyük fark!😱 Genellemek gerikirse, *n* elemanlı bir listede yapılacak bir arama(search) işleminde simple search ile n adımda tamamlanırken en kötü ihtimalle binary search ile log2 n adımda tamamlanır.🏁
 
 |Logaritma|
@@ -56,9 +60,52 @@ Bu kitapta logaritma hakkında çokça bahsedeceğim, o yüzden logaritmayı kav
 >**Not:**
 Binary search sadece listen sıralı ise çalışır. Mesela telefon defterindeki isimler alfebetik bir şekilde sıralıdır,bu yüzden de bir isim ararken binary search kullanabiliriz. Peki ya isimler sıralı olmasaydı?🤔
 
-Hadi Python'da binary search'ün nasıl yazıldığına bakalım. Buradaki kodda array kullanıldı(Eğer ki array'in nasıl çalıştığını bilmiyorsan, endişelenme. Bir sonraki bölümde göreceğiz😉.Sadece bir dizi elemanı array adı verilen ardışık kutularda saklayabileceğinizi bilmen yeterli. Kutular 0'dan başlayarak numaralandırılır: ilk kutu #0 konumundadır, ikincisi #1, üçüncüsü #2 ve bu şekilde devam eder.)
+Hadi Python'da binary search'ün nasıl yazıldığına bakalım. Buradaki kodda array kullanıldı(Eğer ki array'in nasıl çalıştığını bilmiyorsan, endişelenme. Bir sonraki bölümde göreceğiz😉.Sadece bir dizi elemanı array adı verilen ardışık kutularda saklayabileceğinizi bilmen yeterli. Kutular 0'dan başlayarak numaralandırılır: ilk kutu #0 konumundadır, ikincisi #1, üçüncüsü #2 ve bu şekilde devam eder.).
 
 **Binary search** fonksiyonu bir eleman ve sıralanmış bir array alır. Eğer alınan eleman array'in bir elemanıysa fonksiyon onun konumunu döndürür. Array'in hangi kısmında arama yapılacağına dikkat et, en başta bu tüüm array'dir.🙃
 ![1 12](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/e8c9a628-4cbb-4994-a30c-a47ce94482b7)
 
-Her seferinde ortadaki elemanı kontrol edersin:
+Her seferinde ortadaki elemanı kontrol ederiz:
+```python
+mid = (low + high) / 2   #mid, (low+high) çift olmasa bile Python otomatikman aşağı yuvarlıyor
+guess = list[mid]
+```
+Eğer ki tahmin azsa, **low**'u aşağıdaki gibi güncelleriz:
+```python
+if guess < item:
+ low = mid + 1
+```
+![1 13](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/62bf0bea-1803-4208-ba65-901c472752df)
+
+Eğer fazlaysa da **high*'ı güncelleriz. İşte tüm kod:
+```python
+def binary_search(list, item):
+ low = 0
+ high = len(list)—1
+
+ while low <= high:
+   mid = (low + high)
+   guess = list[mid]
+
+   if guess == item:
+   return mid
+
+   if guess > item:
+   high = mid - 1
+
+   else:
+   low = mid + 1
+
+ return None
+
+my_list = [1, 3, 5, 7, 9]
+
+print binary_search(my_list, 3) # => 1
+print binary_search(my_list, -1) # => None
+```
+
+### Egzersizler
+**1.1** 128 ismin olduğu sıralı bir listen olsun, sen de binary search kullanarak bu listede arama yapıyorsun. Araman en fazla kaç adımda biter?
+**1.2** Listenin boyunu iki katına çıkardığını düşünelim. Şimdi en fazla kaç adımda bitirirsin?
+
+## Çalışma süresi
