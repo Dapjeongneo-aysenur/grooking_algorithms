@@ -50,13 +50,11 @@ Yani binary search ile sadece 18 adımda tamamlanır-ne büyük fark!😱 Genell
 |![image](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/f588abde-87ee-423f-a788-3ee56e03d3bb) |
 |Bu kitapta Big O gösterimiyle(az sonra açıklayacağım) çalışma süresinden bahsederken log ifadesi hep log2 anlamında kullanılacak. Bir elemanı simple search ile ararken en kötü ihtimalle tüm elemanlara bakman gerekir. Yani 8 sayılı bir listede en fazla 8 sayıya bakacaksın. Binary search ile ararken ise en kötü ihtimalle log n tane elemana bakman gerekir. 8  sayılı bir listede ise en çok log 8 == 3, (çünkü 2**3(2 üssü 3) == 8) tane elemana bakmalısın.|
 
-|**Not**|
-|-------|
-|Bu kitapta logaritma hakkında çokça bahsedeceğim, o yüzden logaritmayı kavramalısınız. Eğer ki bilmiyorsanız Khan Academy'nin bunu açıklayan güzel bir videosu var.[videoya buradan ulaşabilirsiniz](https://tr.khanacademy.org/math/algebra2/exponential-and-logarithmic-functions/introduction-to-logarithms/v/logarithms)|
+>**Not:**
+Bu kitapta logaritma hakkında çokça bahsedeceğim, o yüzden logaritmayı kavramalısınız. Eğer ki bilmiyorsanız Khan Academy'nin bunu açıklayan güzel bir videosu var. -> [videoya buradan ulaşabilirsiniz](https://tr.khanacademy.org/math/algebra2/exponential-and-logarithmic-functions/introduction-to-logarithms/v/logarithms)
 
-|**Not**|
-|-------|
-|Binary search sadece listen sıralı ise çalışır. Mesela telefon defterindeki isimler alfebetik bir şekilde sıralıdır,bu yüzden de bir isim ararken binary search kullanabiliriz. Peki ya isimler sıralı olmasaydı?🤔|
+>**Not:**
+Binary search sadece listen sıralı ise çalışır. Mesela telefon defterindeki isimler alfebetik bir şekilde sıralıdır,bu yüzden de bir isim ararken binary search kullanabiliriz. Peki ya isimler sıralı olmasaydı?🤔
 
 Hadi Python'da binary search'ün nasıl yazıldığına bakalım. Buradaki kodda array kullanıldı(Eğer ki array'in nasıl çalıştığını bilmiyorsan, endişelenme. Bir sonraki bölümde göreceğiz😉.Sadece bir dizi elemanı array adı verilen ardışık kutularda saklayabileceğinizi bilmen yeterli. Kutular 0'dan başlayarak numaralandırılır: ilk kutu #0 konumundadır, ikincisi #1, üçüncüsü #2 ve bu şekilde devam eder.)
 
