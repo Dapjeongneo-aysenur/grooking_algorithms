@@ -77,7 +77,7 @@ if guess < item:
 ```
 ![1 13](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/62bf0bea-1803-4208-ba65-901c472752df)
 
-Eğer fazlaysa da **high*'ı güncelleriz. İşte tüm kod:
+Eğer fazlaysa da **high**'ı güncelleriz. İşte tüm kod:
 ```python
 def binary_search(list, item):
  low = 0
@@ -109,3 +109,22 @@ print binary_search(my_list, -1) # => None
 **1.2** Listenin boyunu iki katına çıkardığını düşünelim. Şimdi en fazla kaç adımda bitirirsin?
 
 ## Çalışma süresi
+Ne zaman bir algoritmadan bahsetsem, onun çalışma süresinden bahsedeceğim. Genellikle en verimli algoritmayı seçersiniz.-ister zamanı ister hafızayı optimize ediyor olun.
+Binary search'e geri dönelim. Bunu kullanarak ne kadar zamandan tasarruf ettik? İlk yaklaşım her bir numarayı tek tek kontrol etmekti. Eğer ki 100 sayılık bir listemiz varsa bu 100 tahmin demektir. 4 milyar sayılık ise 4 milyar tahmin demek.💀 Yani maksimum tahmin sayısı listenin boyutu ile aynıdır. Buna *doğrusal(lineer) zaman* denir.
+Ama binary search farklı. Liste 100 parçadan oluşuyorsa, en fazla 7 tahmin gerekir. 4 milyar öğeden oluşuyorsa da, en fazla 32 tahmin gerekir. Etkileyici, değil mi? Binary search logaritmik zamanda çalışır (log time). İşte bugünkü tespitlerimizi özetleyen bir tablo.
+![1 14](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/903bcd42-fabe-4971-bc4d-43ff75049abc)
+
+# Big O gösterimi
+Big O gösterimi, bir algoritmanın ne kadar hızlı olduğunu gösteren özel bir gösterimdir. Kime ne?🙄 Başkalarının algoritmalarını sık sık kullanıyoruz ve kullandığımız kodun ne kadar hızlı olduğunu bilmemiz gerekebilir. 
+### Algoritma çalışma süreleri farklı oranlarda büyür
+Bob NASA için bir arama algoritması yazıyor. Algoritması, bir roket Ay'a inmek üzereyken devreye girecek ve nereye ineceğini hesaplamaya yardımcı olacak. 
+
+Bu, iki algoritmanın çalışma süresinin nasıl farklı oranlarda artabileceğine bir örnek. Bob simple search ile binary search arasında karar vermeye çalışıyor. Algoritmanın hem hızlı hem de doğru olması gerekiyor. Binary search hızlıdır ve Bob'un nereye ineceğini bulmak için sadece 10 saniyesi var - yoksa roket rotasından çıkacaktır. Öte yandan, simple search'ün yazılması daha kolaydır ve hataların ortaya çıkma olasılığı daha azdır vee Bob gerçekten de roketi indirecek kodda hata olmasını istemez!🧐 Daha dikkatli olmak için Bob her iki algoritmayı da 100 elemanlı bir liste ile zamanlamaya karar verir.
+
+Bir öğeyi kontrol etmenin 1 milisaniye sürdüğünü düşünelim. Simple search ile Bob'un 100 öğeyi kontrol etmesi gerekir, bu nedenle aramanın çalışması 100 ms sürer. Öte yandan, binary search ile sadece 7 öğeyi kontrol etmesi gerekir (log2 100 kabaca 7'dir), bu nedenle aramanın çalışması 7 ms sürer. Ancak gerçekçi olmak gerekirse, listenin bir milyar elemanı olacaktır. O zamann, simple search ve binary search ne kadar sürer?🤔Okumaya devam etmeden önce her soru için bir cevabınız olduğundan emin olun.
+![1 15](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/9226dc47-fc7a-4b81-b540-c71ad800bb89)
+
+Bob 1 milyar elemanlı binary search çalıştırıyor ve 30 ms sürüyor (log2 1.000.000.000 kabaca 30'dur). "32 ms!" diye düşünüyor, Bob.🤔 "Binary search, simple search'ten yaklaşık 15 kat daha hızlıdır, çünkü simple search 100 elemanla 100 ms, binary search ise 7 ms sürer. Yani simple search 30 × 15 = 450 ms sürer, değil mi? Benim eşik değerim olan 10 saniyenin çok altında." 
+Bob simple search'ü seçmeye karar verir. 
+Bu doğru bir seçim mi?🙄
+
