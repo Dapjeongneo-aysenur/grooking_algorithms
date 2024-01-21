@@ -14,7 +14,7 @@ Tüm durumlarda algoritmayı açıklayıp örnekler vereceğim. Sonrasında da a
 - Bazı problemler zamanında çözülemez! Bu kitabın NP-complete problemlerden bahseden bölümü, bu problemleri nasıl tanımlayacağınızı ve size yaklaşık bir cevap veren bir algoritmayı nasıl bulacağınızı gösterir.
 Daha genel olarak, bu kitabın sonunda, yaygın olarak kullanılan algoritmalardan bazılarını bileceksiniz. Daha sonra yeni bilgilerinizi yapay zeka, veritabanları ve benzeri alanlara yönelik daha spesifik algoritmalar hakkında bilgi edinmek için kullanabilirsiniz. Ya da iş yerinde daha büyük zorlukların üstesinden gelebilirsiniz.
 
-| What you need to know |
+| Bilmeniz gerekenler |
 | ----------- |
 | Bu kitaba başlamadan önce temel cebir bilgisine sahip olmanız gerekir. Hadi şu fonksiyona bir bakalım: f(x) = x × 2. f(5) kaçtır? Eğer 10 cevabını verdiyseniz, Hazırsın.
 Ayrıca, bir programlama dili ile aşinaysanız, bu bölümdeki(ve bu kitaptaki) içerikleri daha kolay anlarsınız. Bu kitaptaki tüm örnekler Python ile yazıldı. Hiçbir programlama dilini bilmiyorsan ve öğrenmek istiyorsan Python öğren-Yeni başlayanlar için harikadır. Eğer ki Ruby gibi başka bir dil biliyorsan da sorun yaşamazsın.|
