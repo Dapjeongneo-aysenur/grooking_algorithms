@@ -128,3 +128,4 @@ Bob 1 milyar elemanlı binary search çalıştırıyor ve 30 ms sürüyor (log2 
 Bob simple search'ü seçmeye karar verir. 
 Bu doğru bir seçim mi?🙄
 
+Hayır! Görünüşe göre Bob hata yapıyor, hem de büyük bir hata. Simple search'ün 1 milyar elemandaki çalışma süresi 1 milyar ms, yani 11 gündür!
