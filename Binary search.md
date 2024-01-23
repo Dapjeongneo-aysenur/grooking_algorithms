@@ -1,11 +1,11 @@
 # Binary search
-Diyelim ki telefon defterinde bir kişiyi arıyorsunuz (ne kadar eski moda bir cümle!).📖 İsmi K harfiyle başlıyor. Baştan başlayıp K'lere kadar sayfaları çevirebilirsiniz. Ancak bunun yerine ortadaki bir sayfadan başlarsınız çünkü K'lerin rehberin ortalarında olacağını bilirsiniz
+Diyelim ki telefon defterinde bir kişiyi arıyorsunuz (ne kadar eski moda bir cümle!).📖 İsmi K harfiyle başlıyor. Baştan başlayıp K'lere kadar sayfaları çevirebilirsiniz. Ancak bunun yerine ortadaki bir sayfadan başlarsınız çünkü K'lerin rehberin ortalarında olacağını bilirsiniz.
 
-Ya da sözlükte O harfi ile başlayan bir kelime aradığınızı düşünelim. Yine ortalardan başlarsınız.
+Ya da sözlükte O harfi ile başlayan bir kelime aradığınızı düşünelim, yine ortalardan başlarsınız.
 
-Şimdi Facebook'a giriş yaptığınızı varsayalım. Giriş yaparken, Facebook'un sitede bir hesabınız olduğunu doğrulaması gerekir. Bu yüzden, veritabanında kullanıcı adınızı araması gerekir. Kullanıcı adının karlmageddon olduğunu düşünelim. Facebook, A'lardan başlayarak kullanıcı adınızı arayabilir ama ortalarda bir yerden başlaması daha mantıklıdır.
+Şimdi Facebook'a giriş yaptığınızı düşünelim. Giriş yaparken, Facebook'un sitede bir hesabınız olduğunu doğrulaması gerekir. Bu yüzden, veri tabanında kullanıcı adınızı araması gerekir. Kullanıcı adının karlmageddon olduğunu düşünelim. Facebook, A'lardan başlayarak kullanıcı adınızı arayabilir ama ortalarda bir yerden başlaması daha mantıklıdır.
 
-Bu bir arama(search) problemidir. Ve tüm bu durumlarda problemi çözmek için aynı algoritma kullanılır: *binary search*.
+Bunlar birer arama(search) problemidir ve tüm bu durumlarda problemi çözmek için aynı algoritma kullanılır: *binary search*.
 
 Binary search, sıralanmış bir eleman listesi alan bir algoritmadır.(Neden sıralı olması gerektiğini daha sonra açıklayacağım) Eğer aradığınız eleman bu listede yer alıyorsa, binary search elemanın bulunduğu konumu döndürür. Eğer ki bu listede yoksa **null** döndürür.
 
@@ -15,7 +15,7 @@ Mesela:
 Şimdi binary search'ün nasıl çalıştığını gösteren bir örnek yapalım. 1 ile 100 arasında bir sayı düşünelim.
 ![1 2](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/73cc8b68-ad49-47fa-b448-54f2362a133f)
 
-Tuttuğum sayıyı en az denemede tahmine etmelisiniz. Her tahmininizde az, fazla ya da doğru olduğunu söyleyeceğim.
+Tuttuğum sayıyı en az denemede tahmin etmelisiniz. Her tahmininizde az, fazla ya da doğru olduğunu söyleyeceğim.
 1, 2, 3, 4 … şeklinde tahmin ettiğini düşünelim. Önümüzde şöyle uzuun bir yol var:
 ![1 3](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/9788a857-173b-4208-b914-e4ca59197da1)
 ![1 4](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/45281d70-6079-4d85-9c7a-9488f6d4150a)
@@ -26,13 +26,13 @@ Bu *simple search* (belki de *stupid search* demeliyiz😅). Her tahminde sadece
 İşte daha iyi bir yol. 50 ile başlayalım.
 ![1 5](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/891ceeb3-9291-45ca-8312-4d81e1375e32)
 
-Az ama az önce sayıların yarısını eledik!😏 Şimdi 1-50 arasındaki tüm sayıların az olduğunu öğrendik. Sonraki tahminimiz 75...
+Az önce sayıların yarısını eledik!😏 Şimdi 1-50 arasındaki tüm sayıların az olduğunu öğrendik. Sonraki tahminimiz 75...
 ![1 6](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/bd8f2b38-2d10-48da-a62a-1a270e52b0a2)
 
 Fazla ama yine sayıların yarısını eledik! *Binary search'te ortadaki sayıyı tahmin edersiniz, böylece her seferinde kalan sayıların yarısını elemiş olursunuz.* Sonraki 63...(50 ile 75'in ortası)
 ![1 7](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/fd9cfc8d-b369-4c74-88fa-5ba9120557b0)
 
-İşte binary search, az önce ilk algoritmanı öğrendin.🥳 Ve de her seferinde kaç tane sayı elediğin
+İşte binary search, az önce ilk algoritmanı öğrendin.🥳 Ve de her seferinde kaç tane sayı elediğini.
 ![1 8](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/d9ccef8a-926d-4be3-b6dc-f74fcc139922)
 
 Hangi sayıyı tutarsam tutayım, en fazla 7 tahminde bulabilirsin-çünkü her tahminde çok fazla sayı eliyorsun.😉
@@ -103,6 +103,7 @@ print binary_search(my_list, -1) # => None
 
 ### Egzersizler
 **1.1** 128 ismin olduğu sıralı bir listen olsun, sen de binary search kullanarak bu listede arama yapıyorsun. Araman en fazla kaç adımda biter?
+
 **1.2** Listenin boyunu iki katına çıkardığını düşünelim. Şimdi en fazla kaç adımda bitirirsin?
 
 ## Çalışma süresi
@@ -198,25 +199,29 @@ Aslında bu bir basitleştirme işlemi çünkü Big O'yu adım sayısına bu kad
 
 ### Egzersizler
 Aşağıdaki durumların çalışma süresini Big O cinsinden ifade edin.
+
 **1.3** Elinde bir isim var ve telefon defterinden telefon numarasını arıyorsun.
+
 **1.4** Elinde bir telefon numarası var ve telefon defterinden ismini arıyorsun.(İpucu: Tüm kitaba bakmak zorundasın!🤫)
+
 **1.5** Telefon defterinden herkesin telefon numarasına bakmak istiyorsun.
+
 **1.6** Sadece A'ların telefon numarasına bakmak istiyorsun.(Bu zor olanı! 4. bölümde bundan bahsedeceğiz. Cevaba bakmayı unutma, şaşırabilirsin!😏)
 
 ### Gezgin satıcı 
 Son bölümü okuduktan sonra "Asla O(*n*!) süren bir algoritma kullanmam!" demiş olabilirsin. İzin ver yanlış olduğunu göstereyim. Bu örnekte çalışma süresi çook kötü olan bir algoritma kullanacağız. Bu bilgisayar bilimlerinde çok ünlü bir problem çünkü korkutucu bir şekilde büyüyor ve bilim insanları bile bunun hızlandırılamayacağını düşünüyor. İşte *gezgin satıcı* problemi...
 ![image](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/15a28c0b-f50d-4a4c-8682-ac767bd80b22)
 
-Bir satış elemanın var ve 5 şehre gitmesi gerekiyor.
+Bir satış elemanı var ve 5 şehre gitmesi gerekiyor.
 ![image](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/2c226256-5024-4446-a319-41f79ba1ea51)
 
-Adı Opus olan bu satış elemanı bu 5 şehri en kısa yolu kullanarak dolaşmak istiyor. Bunu bulmanın bir yolu olabilecek tüm sıraları incelemek.
+Adı Opus olan bu satış elemanı bu 5 şehri en kısa yolu kullanarak dolaşmak istiyor. En kısa yolu bulmanın bir yolu olabilecek tüm sıraları incelemek.
 ![image](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/82b7bcd8-040e-4fc1-a5f6-4afd851544c7)
 
 Tüm uzaklıkları inceleyip en kısasını seçiyor. 5 şehir için 120 farklı yol var, bu yüzden de 120 adımda tamamlayabilir. 6 şehir olduğunda 720, 7 şehre çıktığında ise 5,040 adım sürüyor.🤯
 ![image](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/4b8f0103-38d5-4e21-be88-a5edb47f919c)
 
-Genel olarak *n* eleman için *n!* tane adımda tamamlanıyor, bu yüzden de bu O(*n1*)-*factorial time(faktöriyel süre)- oluyor. Bu da çok küçük sayılar dışında yapılacak bir sürü adım demek. Hatta 100'den fazla şehri işin içine kattığımızda çözmek imkansız oluyor.-Güneş çözümden önce yok olacaktır.💥
+Genel olarak *n* eleman için *n!* tane adımda tamamlanıyor, bu yüzden de bu O(*n!*)-*factorial time(faktöriyel süre)- oluyor. Bu da çok küçük sayılar dışında yapılacak bir sürü adım demek. Hatta 100'den fazla şehri işin içine kattığımızda çözmek imkansız oluyor.-Güneş çözümden önce yok olacaktır.💥
 
 Bu korkunç bir algoritma ve Opus farklı bir şey kullanmalı, değil mi? Ama ne yazık ki yapamaz. Bu bilgisayar bilimlerindeki çözülememiş problemlerden biri. Bunun için bilinen daha hızlı bir algoritma yok ve bilim insanları bunun çözülmesinin *imkansız* olduğunu söylüyor. Bu konuda yapabileceğimiz en iyi şey yaklaşık bir sonuç bulmak, bunu da 10. bölümde yapacağız.
 
