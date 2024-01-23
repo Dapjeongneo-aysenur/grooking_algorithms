@@ -10,7 +10,6 @@ Bu bir arama(search) problemidir. Ve tüm bu durumlarda problemi çözmek için 
 Binary search, sıralanmış bir eleman listesi alan bir algoritmadır.(Neden sıralı olması gerektiğini daha sonra açıklayacağım) Eğer aradığınız eleman bu listede yer alıyorsa, binary search elemanın bulunduğu konumu döndürür. Eğer ki bu listede yoksa **null** döndürür.
 
 Mesela:
-
 ![1 1](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/428054bb-75e3-41c7-a57e-e0d9cf885094)
 
 Şimdi binary search'ün nasıl çalıştığını gösteren bir örnek yapalım. 1 ile 100 arasında bir sayı düşünelim.
@@ -18,7 +17,6 @@ Mesela:
 
 Tuttuğum sayıyı en az denemede tahmine etmelisiniz. Her tahmininizde az, fazla ya da doğru olduğunu söyleyeceğim.
 1, 2, 3, 4 … şeklinde tahmin ettiğini düşünelim. Önümüzde şöyle uzuun bir yol var:
-
 ![1 3](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/9788a857-173b-4208-b914-e4ca59197da1)
 ![1 4](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/45281d70-6079-4d85-9c7a-9488f6d4150a)
 
@@ -32,7 +30,6 @@ Az ama az önce sayıların yarısını eledik!😏 Şimdi 1-50 arasındaki tüm
 ![1 6](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/bd8f2b38-2d10-48da-a62a-1a270e52b0a2)
 
 Fazla ama yine sayıların yarısını eledik! *Binary search'te ortadaki sayıyı tahmin edersiniz, böylece her seferinde kalan sayıların yarısını elemiş olursunuz.* Sonraki 63...(50 ile 75'in ortası)
-
 ![1 7](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/fd9cfc8d-b369-4c74-88fa-5ba9120557b0)
 
 İşte binary search, az önce ilk algoritmanı öğrendin.🥳 Ve de her seferinde kaç tane sayı elediğin
@@ -128,4 +125,106 @@ Bob 1 milyar elemanlı binary search çalıştırıyor ve 30 ms sürüyor (log2 
 Bob simple search'ü seçmeye karar verir. 
 Bu doğru bir seçim mi?🙄
 
-Hayır! Görünüşe göre Bob hata yapıyor, hem de büyük bir hata. Simple search'ün 1 milyar elemandaki çalışma süresi 1 milyar ms, yani 11 gündür!
+Hayır! Görünüşe göre Bob hata yapıyor, hem de büyük bir hata. Simple search'ün 1 milyar elemandaki çalışma süresi 1 milyar ms, yani 11 gündür!😵‍💫 Sorun şu ki, binary search ve simple search için çalışma süreleri *aynı oranda artmıyor*. 
+![1 16](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/06221023-f46e-4e00-97c9-40bdb81ac1f4)
+
+Eleman sayısı arttıkça binary search'ün tamamlanması biraz daha fazla sürer ama simple search'te *çook* daha fazla sürer. Yani listedeki eleman sayısı arttıkça binary search, simple search'ten *çok* daha fazla sürmeye başlar. Bob binary search'ün simple search'ten 15 kat hızlı olduğunu düşündü, ancak bu doğru değil. Eğer ki listede 1 milyar eleman varsa 33 milyon kat hızlı olur. Bu yüzden bir algoritmanın çalışma hızını bilmek yeterli değil-listenin boyu arttıkça çalışma hızının nasıl arttığını da bilmeliyiz. İşte burada işin içine Big O gösterimi giriyor.
+
+Big O gösterimi bir algoritmanın ne kadar hızlı olduğunu söyler. Mesela listenin boyu *n* olsun. Simple search tüm elemanları kontrol edeceği için *n* adım sürecek. Çalışma süresi Big O gösterimi ile O(*n*)'dir. Peki saniyeler nerede?🙄Açıkçası yok-Big O saniyedeki hızını belirtmez. Big O *gösterimi adım sayısını karşılaştımanı sağlar.* Algoritmanın ne kadar hızlı büyüyeceğini gösterir.
+![1 17](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/c3cbddbb-422d-4112-822e-a6633aebd6c8)
+
+İşte başka bir örnek. Binary search *n* elemanlı bir listeyi log *n* adımda tamamlar. Big O ile gösterimi nasıl mı, O(log *n*) şeklinde. Genellikle Big O gösterimi şu şekilde yazılır.
+![1 18](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/eb9ac47c-753c-4f2a-b084-0994e1af6cc8)
+
+Bu bir algoritmanın kaç adımda tamamlanacağını gösterir. Buna Big O gösterimi denmesinin sebebi adım sayısının önüne "büyük bir O" koyduğumuz için. (şaka gibi ama gerçek!🙃)
+
+Hadi bir kaç örneğe bakalım, bakalım çalışma sürelerini bulabilecek misin?🧐
+
+### Farklı Big O çalışma sürelerini görselleştirmek                                
+
+İşte evde bir kaç parça kağıt ve kalemle takip edebileceğin pratik bir örnek.📝 16 kutudan oluşan bir ızgara çizdiğinizi düşünelim.
+![image](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/7ce84bad-649a-4346-beec-74c0b5446074)
+
+#### 1. algoritma
+16 kutu çizmenin bir yolu teker teker çizmek. Big O'nu yapılan adımları saydığını hatırla. Bu örnekte de her kutu birer adım ve 16 kutu çizmelisin. Bu şekilde kaç adım sürer?
+![image](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/b8159c62-973f-42f5-9e32-aac58dff1006)
+
+16 adımda 16 kutu çizilmiş olur. Peki bu algoritmanın çalışma süresi ne olur?🤔
+
+#### 2. algoritma
+Tek tek çizmek yerine katlamaya ne dersin!
+![image](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/b91755b9-457d-40a7-a006-91551f2dee6d)
+
+Bu sefer, kağıdı katlamamız bir adım oluyor ve her adımda 2 kutu yapıyorsun! Hadi kağıdı katlayalımm!🥳
+![image](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/4d88a4a1-d4d5-4d76-bebf-4491ad500176)
+
+4 kez katladıktan sonra kağıdını aç vee artık harika bir ızgaran var! Her katlamada kutuların sayısı iki katına çıktı ve 4 adımda 16 kutu yapmış oldun!
+![image](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/d7be63f9-b8e5-4307-b520-e1e95aa73844)
+
+Her katlamada kutu sayın iki katına çıkıyor, böylece 4 adımda 16 kutun oluyor. Peki bu algoritmanın çalışma süresi ne olur? Devam etmeden iki algoritmanın da çalışma süresini bulmuş oll.🤭
+
+*Cevaplar:* 1. algoritmayla O(*n*) seferde, 2. algoritmada ise O(log *n*) seferde tamamlanır.
+
+### Big O en kötü durumun çalışma süresini gösterir
+Telefon defterinde birini ararken simple search kullandığını düşünelim. Simple search'ün çalışmasının O(*n*) kadar zaman sürdüğünü biliyorsun. bu da en kötü durum demek çünkü telefon defterindeki herkese bakmak zorundasın. Adit'i aradığını ve telefon defterindeki ilk kişi o olsun. Yani tüm defteri okumadan-hatta ilk seferde- aradığın kişiyi buluyorsun. Peki algoritma hala O(*n*) kadar sürer mi, yoksa ilk seferde bulduğun için O(1) kadar mı olur?🤔
+
+Simple search hala O(*n*) kadar sürer. Az önce aradığını hemen bulmuş olabilirsin-ki bu en iyi durum(best case) ama unutma ki Big O gösterimi *en kötü durumu* temel alır. Bu yüzden de *en kötü ihtimalle* kitaptaki her şeye en az bir kez bakmış olursun, bu da O(*n*) eder. Yani bu bir güvencedir ve simple search O(*n*)'den kısa süremez.
+
+> **Not:** En kötü durumdaki çalışma süresinin yanında ortalama çalışma süresine bakmak da önemlidir. Bunu da 4. bölümde yapacağız.😉
+
+### En yaygın Big O süreleri
+İşte sık sık karşılaşacağın 5 Big O süreleri(hızlıdan yavaşa doğru sıralandı):
+1. O(log *n*), log time olarak da bilinir. Örnek: Binary search.
+2. O(*n*), linear time olarak da bilinir. Örnek: Simple search.
+3. O(*n* * log *n*). Örnek: Hızlı bir algoritma olan quicksort gibi(4. bölümde).
+4. O(*n2*(n kare)). Örnek: Yavaş bir algoritma olan selection sort gibi(2. bölümde).
+5. O(*n!*). Örnek: Çook yavaş bir algoritma, "Gezgin satıcı"daki gibi (az sonra bahsedeceğiz!).
+
+Yine 16 kutulu bir ızgara çizelim ve bu 5 algoritmadan birini seçiyorsun. Eğer ki ilk algoritmayı kullanırsan O(log *n*) kadar sürecek ve saniyede 10 adım tamamlayacaksın. Bu da 4 adım(log 16 = 4) 16 kutu çizeceğin ve 0.4 saniyede biteceği anlamına geliyor. Peki ya 1,024 kutu çizmen gerekirse? Bu da log 1,024 = 10 adımdan 1 saniyede biter. Bunlar ilk algoritmayı kullandığımızda alacağımız sonuçlardı.
+
+İkinci algoritma daha yavaş, O(*n*) kadar sürüyor. 16 adımda 16 kutu, 1,024 adımda da 1.024 kutu çizebiliyor. Peki bu saniyede ne kadar eder?
+
+İşte hızlıdan yavaşa doğru bir ızgara çizmenin ne kadar süreceği:
+![image](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/0c97f86f-5957-46d7-8143-3f508f089b04)
+
+Daha bir sürü çalışma süresinden bahsedebiliriz ama bunlar en yaygın 5'i.
+
+Aslında bu bir basitleştirme işlemi çünkü Big O'yu adım sayısına bu kadar iyi geçiremezsiniz ama şimdilik yeterli. Bir kaç algoritma daha öğrendikten sonra 4. ünitede Big O gösteriminden tekrar bahsedeceğiz ama şimdilik bilmemiz gerekenler şunlar:
+
+- Algoritma hızı saniyeyle ölçülmez ama adım sayısına göre büyür.
+- Bunun yerine girdinin boyu artarken çalışma süresinin ne kadar hızlı arttığından bahsediyoruz.
+- Algoritmanın çalışma hızı Big O gösterimiyle ifade edilir.
+- O(log *n*), O(*n*)'den daha hızlıdır ve girdinin boyu artarken daha da hızlanır.
+
+### Egzersizler
+Aşağıdaki durumların çalışma süresini Big O cinsinden ifade edin.
+**1.3** Elinde bir isim var ve telefon defterinden telefon numarasını arıyorsun.
+**1.4** Elinde bir telefon numarası var ve telefon defterinden ismini arıyorsun.(İpucu: Tüm kitaba bakmak zorundasın!🤫)
+**1.5** Telefon defterinden herkesin telefon numarasına bakmak istiyorsun.
+**1.6** Sadece A'ların telefon numarasına bakmak istiyorsun.(Bu zor olanı! 4. bölümde bundan bahsedeceğiz. Cevaba bakmayı unutma, şaşırabilirsin!😏)
+
+### Gezgin satıcı 
+Son bölümü okuduktan sonra "Asla O(*n*!) süren bir algoritma kullanmam!" demiş olabilirsin. İzin ver yanlış olduğunu göstereyim. Bu örnekte çalışma süresi çook kötü olan bir algoritma kullanacağız. Bu bilgisayar bilimlerinde çok ünlü bir problem çünkü korkutucu bir şekilde büyüyor ve bilim insanları bile bunun hızlandırılamayacağını düşünüyor. İşte *gezgin satıcı* problemi...
+![image](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/15a28c0b-f50d-4a4c-8682-ac767bd80b22)
+
+Bir satış elemanın var ve 5 şehre gitmesi gerekiyor.
+![image](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/2c226256-5024-4446-a319-41f79ba1ea51)
+
+Adı Opus olan bu satış elemanı bu 5 şehri en kısa yolu kullanarak dolaşmak istiyor. Bunu bulmanın bir yolu olabilecek tüm sıraları incelemek.
+![image](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/82b7bcd8-040e-4fc1-a5f6-4afd851544c7)
+
+Tüm uzaklıkları inceleyip en kısasını seçiyor. 5 şehir için 120 farklı yol var, bu yüzden de 120 adımda tamamlayabilir. 6 şehir olduğunda 720, 7 şehre çıktığında ise 5,040 adım sürüyor.🤯
+![image](https://github.com/Dapjeongneo-aysenur/grooking_algorithms/assets/94196503/4b8f0103-38d5-4e21-be88-a5edb47f919c)
+
+Genel olarak *n* eleman için *n!* tane adımda tamamlanıyor, bu yüzden de bu O(*n1*)-*factorial time(faktöriyel süre)- oluyor. Bu da çok küçük sayılar dışında yapılacak bir sürü adım demek. Hatta 100'den fazla şehri işin içine kattığımızda çözmek imkansız oluyor.-Güneş çözümden önce yok olacaktır.💥
+
+Bu korkunç bir algoritma ve Opus farklı bir şey kullanmalı, değil mi? Ama ne yazık ki yapamaz. Bu bilgisayar bilimlerindeki çözülememiş problemlerden biri. Bunun için bilinen daha hızlı bir algoritma yok ve bilim insanları bunun çözülmesinin *imkansız* olduğunu söylüyor. Bu konuda yapabileceğimiz en iyi şey yaklaşık bir sonuç bulmak, bunu da 10. bölümde yapacağız.
+
+> Eğer ki ileri seviye biriysen, binary search trees konusuna bakabilirsin! Son bölümünde bunların kısa bir açıklaması var.
+
+### Özet
+- Binary search, simple search'ten daha hızlıdır.
+- O(log *n*), O(*n*)'den daha hızlıdır ve eleman sayısı arttıkça daha da hızlanır.
+- Algoritma hızı saniyeyle ölçülmez.
+- Algoritmanın süresi *büyümesine* bakılarak ölçülür.
+- Algoritma süresi Big O gösterimi ile ifade edilir.
